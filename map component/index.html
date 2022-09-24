@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>
+        Test Maps
+    </title>
+
+    <style>
+        #map {
+            height: 600px;
+            width: 600px;
+        }
+    </style>
+</head>
+
+
+
+<body>
+
+    <h1> Test Map</h1>
+
+    <div id="map"> </div>
+
+    <script>
+        function initMap() {
+
+
+            var options = {
+                zoom: 12,
+                center: { lat: 37.3387, lng: -121.8853 }
+            }
+            var map = new google.maps.Map(document.getElementById('map'), options);
+
+
+
+            //data
+
+            var test_coord_1 = { lat: 37.357407, lng: - 121.895888 }
+            var test_descr_1 = '<h1> Trash on Road <h1>'
+            var test_coord_2 = { lat: 37.357407, lng: - 121.825888 }
+            var test_descr_2 = '<h1> Pollution <h1>'
+
+            var marker_1 = { coords: test_coord_1, descr: test_descr_1 };
+            var marker_2 = { coords: test_coord_2, descr: test_descr_2 };
+
+            var markers = [
+                marker_1, marker_2
+            ]
+
+
+
+            for (var i = 0; i < markers.length; i++) {
+                addMarker(markers[i])
+            }
+
+
+            function addMarker(props) {
+
+                const alert_icon = {
+                    url: "images/red.png", // url
+                    scaledSize: new google.maps.Size(50, 50), // scaled size
+                    origin: new google.maps.Point(0, 0), // origin
+                    anchor: new google.maps.Point(0, 0) // anchor
+                };
+
+
+                var marker = new google.maps.Marker({
+                    position: props.coords,
+                    map: map,
+                    icon: alert_icon
+                });
+
+                if (props.descr) {
+                    var infoWindow = new google.maps.InfoWindow({
+                        content: props.descr
+                    });
+
+                    marker.addListener('click', function () {
+                        infoWindow.open(map, marker)
+                    });
+                }
+            }
+
+        }
+    </script>
+
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGAxGQk2o303hZkwdnGlkr4eLhXCGbAEg&callback=initMap">
+        </script>
+
+</body>
+
+</html>
