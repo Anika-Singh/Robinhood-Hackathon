@@ -67,14 +67,22 @@ var surveyValueChanged = function (sender, options) {
     setLocation(survey.data['location'])
     setCategory(survey.data['category'])
     setDescription(survey.data['description'])
-    console.log(survey.data['Quality']["easy"])
-    myAsyncFunction('http://127.0.0.1:5000/survey', survey.data['location'], survey.data['category'], survey.data['description'], "POST")
+    myAsyncFunction('http://127.0.0.1:5000/user_reports', survey.data['location'], survey.data['category'], survey.data['description'], "POST")
 };
 
-let myAsyncFunction = async (url, quality, satisfaction, suggestions, methods) => {
-    console.log(satisfaction)
-    const response = await fetch(url + "?quality=" + quality + "&satisfaction=" + satisfaction + "&suggestions=" + suggestions, {method: methods})
-  };
+let myAsyncFunction = async (url, location, category, description) => {
+    console.log(category)
+    let dict = {
+      method : "POST",
+      mode: 'cors',
+      body : JSON.stringify({
+        location: location,
+        category: category,
+        description: description,
+      })
+    }
+    let response = await fetch(url, dict)
+}
 
 
 const survey = new Survey.Model(json);

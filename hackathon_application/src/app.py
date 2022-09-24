@@ -14,15 +14,25 @@ def jsonify(response : dict) -> Response:
         mimetype='application/json'
     )
 
-@app.route("/results", methods=["GET", "POST"])
+@app.route("/user_reports", methods=["GET", "POST"])
 def set_answers():
     if request.method == "POST":
         args = request.get_json(force = True)
-        types = args['types']
+        location = args['location']
+        category = args['category']
+        description = args['description']
+        print('location', location)
+        print('category', category)
+        print('description', description)
 
         result_dict = {
-            'types': types,
+            'location': location,
+            'category': category,
+            'description': description
         }
         Data().reports.insert_one(result_dict)
 
     return {}
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")
