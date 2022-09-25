@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import {Link} from "react-router-dom";
 
-const links = ['home', 'events', 'profile', 'feed']
+const links = ['home', 'events', 'profile', 'feed', 'report']
 
 function NavBar(props) {
     return (
