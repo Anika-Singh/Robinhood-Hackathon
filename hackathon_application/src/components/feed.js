@@ -10,7 +10,7 @@ import { green } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import React, { useState,  useEffect} from "react";
-
+import  air_pollution from "./imgs/air_pollution.png";
 
 const Feeds = (props) =>{
   return (
@@ -19,7 +19,6 @@ const Feeds = (props) =>{
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: green[500] }} aria-label="recipe">
-            B
           </Avatar>
         }
         align = "left"
@@ -27,8 +26,8 @@ const Feeds = (props) =>{
       />
       <CardMedia
         component="img"
-        height="200"
-        image="./imgs/air_pollution.png"
+        height="300"
+        image={air_pollution}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
