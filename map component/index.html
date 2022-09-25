@@ -4,13 +4,13 @@
 <head>
 
     <title>
-        Test Maps
+        Map
     </title>
 
     <style>
         #map {
-            height: 600px;
-            width: 600px;
+            height: 800px;
+            width: 1200px;
         }
     </style>
 </head>
@@ -19,7 +19,7 @@
 
 <body>
 
-    <h1> Test Map</h1>
+    <h1> Map </h1>
 
     <div id="map"> </div>
 
@@ -37,16 +37,28 @@
 
             //data
 
-            var test_coord_1 = { lat: 37.357407, lng: - 121.895888 }
-            var test_descr_1 = '<h1> Trash on Road <h1>'
-            var test_coord_2 = { lat: 37.357407, lng: - 121.825888 }
-            var test_descr_2 = '<h1> Pollution <h1>'
+            var test_coord_1 = { lat: 37.318927, lng: - 122.036917 }
+            var test_title_1 = '<h1> Air Pollution <h1>'
+            var test_coord_2 = { lat: 37.357407, lng: - 121.805888 }
+            var test_title_2 = '<h1> Chemical Waste <h1>'
 
-            var marker_1 = { coords: test_coord_1, descr: test_descr_1 };
-            var marker_2 = { coords: test_coord_2, descr: test_descr_2 };
+            var test_coord_3 = { lat: 37.254749, lng: - 121.882480 }
+            var test_title_3 = '<h1> Trash Pollution <h1>'
+
+            var test_image_1 = 'images/pollution.jpg'
+            var test_image_2 = 'images/chemicals.png'
+            var test_image_3 = 'images/trash.png'
+
+            var test_descr_1 = "There was so much air pollution by the intersection!"
+            var test_descr_2 = "Smelled chemical waste from the factory on north street"
+            var test_descr_3 = "My neighborhood has so much trash by the sidewalk! Lets go clean it up this weekend!"
+
+            var marker_1 = { coords: test_coord_1, title: test_title_1, img_path: test_image_1, descr: test_descr_1 };
+            var marker_2 = { coords: test_coord_2, title: test_title_2, img_path: test_image_2, descr: test_descr_2 };
+            var marker_3 = { coords: test_coord_3, title: test_title_3, img_path: test_image_3, descr: test_descr_3 };
 
             var markers = [
-                marker_1, marker_2
+                marker_1, marker_2, marker_3
             ]
 
 
@@ -72,7 +84,26 @@
                     icon: alert_icon
                 });
 
-                if (props.descr) {
+                if (props.descr && props.img_path) {
+                    var infoWindow = new google.maps.InfoWindow({
+                        content: props.title + '<IMG BORDER="0" WIDTH="300px" ALIGN="Left" SRC=' + props.img_path + '>' + '<p style = "padding-top: 200px; width: 300px; font-size: 15px;">' + props.descr + '</p'
+                    });
+
+                    marker.addListener('click', function () {
+                        infoWindow.open(map, marker)
+                    });
+                }
+                else if (props.desc) {
+                    var infoWindow = new google.maps.InfoWindow({
+                        content: props.title
+                    });
+
+                    marker.addListener('click', function () {
+                        infoWindow.open(map, marker)
+                    });
+                }
+                //requires every post to have a descr
+                else {
                     var infoWindow = new google.maps.InfoWindow({
                         content: props.descr
                     });
