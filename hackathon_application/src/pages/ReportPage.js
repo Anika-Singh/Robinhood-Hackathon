@@ -1,11 +1,12 @@
 import {Typography} from "@mui/material";
 import Layout from "./Layout";
+import  Reporting from  '../components/user_reports';
 
 const ReportPage = () => {
     return (
         <Layout>
             <Typography>
-                Report Page
+                <Reporting></Reporting>
             </Typography>
         </Layout>
     )
