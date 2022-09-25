@@ -30,7 +30,6 @@ function App() {
               </BrowserRouter>
           </ThemeProvider>
       </React.StrictMode>
-
   );
 }
 
