@@ -22,7 +22,7 @@ const center = {
   lng: -97.743057,
 };
 
-function App() {
+function GoogleMapCard() {
   const [allUsers, setAllUsers] = useState([]);
   const [users, setUsers] = useState([]);
   // console.log(data)
@@ -100,4 +100,4 @@ function App() {
   );
 }
 
-export default App;
+export default GoogleMapCard;
