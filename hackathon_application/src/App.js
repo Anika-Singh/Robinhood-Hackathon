@@ -14,7 +14,7 @@ function App() {
             <Route path="/feed" element={<FeedPage/>}/>
             <Route path="/map" element={<MapPage/>}/>
             <Route path="/report" element={<ReportPage/>}/>
-            <Route path="/info" element={<UserPage/>}/>
+            <Route path="/profile" element={<UserPage/>}/>
         </Routes>
     </BrowserRouter>
   );

@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import {BrowserRouter as Router, Link} from "react-router-dom";
 
-const links = ['home', 'events', 'profile', 'feed']
+const links = ['home', 'report', 'events', 'feed', 'profile']
 
 function NavBar(props) {
     return (
