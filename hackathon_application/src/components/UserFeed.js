@@ -1,20 +1,6 @@
 import React, { useState } from "react";
 import Card from '@mui/material/Card';
-// const Tabs = styled.div`
-// //     width: 595px;
-// //     height: 51px;
-// // `;
 
-// const Box = styled.div`
-//     width: 1190px;
-//     height: 116px;
-//     background: rgba(255, 255, 255, 0.5);
-// `;
-
-// const FlexRow = styled.div`
-//     display: flex;
-//     flex-direction: row;
-// `;
 
 const Bar = () =>{
     return(
@@ -25,7 +11,6 @@ const Bar = () =>{
     );
 }
 
-// const Data = {category: "test"};
 
 const Feed = () =>{
     return (
