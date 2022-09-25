@@ -1,11 +1,14 @@
 import {Typography} from "@mui/material";
 import Layout from "./Layout";
+import Feed  from '../components/feed';
 
 const FeedPage = () => {
     return (
         <Layout>
             <Typography>
-                Feed Page
+                <div align = "center">
+                    <Feed></Feed>
+                </div>
             </Typography>
         </Layout>
     )
